@@ -1,0 +1,119 @@
+Microsoft Windows [Version 10.0.26100.3775]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\adith>mongod --version
+db version v8.0.8
+Build Info: {
+    "version": "8.0.8",
+    "gitVersion": "7f52660c14217ed2c8d3240f823a2291a4fe6abd",
+    "modules": [],
+    "allocator": "tcmalloc-gperf",
+    "environment": {
+        "distmod": "windows",
+        "distarch": "x86_64",
+        "target_arch": "x86_64"
+    }
+}
+
+C:\Users\adith>mongosh
+Current Mongosh Log ID: 680c73ebdebc0b6eefb5f898
+Connecting to:          mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.5.0
+Using MongoDB:          8.0.8
+Using Mongosh:          2.5.0
+
+For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
+
+
+To help improve our products, anonymous usage data is collected and sent to MongoDB periodically (https://www.mongodb.com/legal/privacy-policy).
+You can opt-out by running the disableTelemetry() command.
+
+------
+   The server generated these startup warnings when booting
+   2025-04-26T11:14:53.673+05:30: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+------
+
+test> show dbs
+admin     40.00 KiB
+config    48.00 KiB
+idb        8.00 KiB
+local     96.00 KiB
+myistay  372.00 KiB
+test> show databases
+admin     40.00 KiB
+config    72.00 KiB
+idb        8.00 KiB
+local     96.00 KiB
+myistay  372.00 KiB
+test> use students
+switched to db students
+students> show collections
+
+students> show dbs
+admin     40.00 KiB
+config    96.00 KiB
+idb        8.00 KiB
+local     96.00 KiB
+myistay  372.00 KiB
+students> use students
+already on db students
+students> db.createCollection('data')
+{ ok: 1 }
+students> show dbs
+admin      40.00 KiB
+config     96.00 KiB
+idb         8.00 KiB
+local      96.00 KiB
+myistay   372.00 KiB
+students    8.00 KiB
+students> show collections
+data
+students> db.data.drop();
+true
+students> show collections
+
+students> db.dropDatabase();
+{ ok: 1, dropped: 'students' }
+students> db.dropDatabase()
+{ ok: 1, dropped: 'students' }
+students> show collections
+
+students> show dbs
+admin     40.00 KiB
+config    96.00 KiB
+idb        8.00 KiB
+local     96.00 KiB
+myistay  372.00 KiB
+students> use students
+already on db students
+students> db.data.insertOne({'name':'adi' , 'age':29})
+{
+  acknowledged: true,
+  insertedId: ObjectId('680c7682debc0b6eefb5f899')
+}
+students> show collections
+data
+students> db.data.insertMany([{'name':'aravind','age':27},{'name':'ramesh','age':34}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('680c76ecdebc0b6eefb5f89a'),
+    '1': ObjectId('680c76ecdebc0b6eefb5f89b')
+  }
+}
+students> show collections
+data
+students> db.data.find()
+[
+  { _id: ObjectId('680c7682debc0b6eefb5f899'), name: 'adi', age: 29 },
+  {
+    _id: ObjectId('680c76ecdebc0b6eefb5f89a'),
+    name: 'aravind',
+    age: 27
+  },
+  {
+    _id: ObjectId('680c76ecdebc0b6eefb5f89b'),
+    name: 'ramesh',
+    age: 34
+  }
+]
+students>
