@@ -1,0 +1,87 @@
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Install the latest PowerShell for new featuresand improvements! https://aka.ms/PSWindows
+
+PS C:\Users\adith> mongosh
+Current Mongosh Log ID: 680c868f2809cb0be6b5f898
+Connecting to:          mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.5.0
+Using MongoDB:          8.0.8
+Using Mongosh:          2.5.0
+
+For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
+
+------
+   The server generated these startup warningswhen booting
+   2025-04-26T11:42:45.246+05:30: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+------
+
+test> use students
+switched to db students
+students> db.data.find()
+[
+  { _id: ObjectId('680c7682debc0b6eefb5f899'),name: 'adi', age: 29 },
+  {
+    _id: ObjectId('680c76ecdebc0b6eefb5f89a'),
+    name: 'aravind',
+    age: 27
+  },
+  {
+    _id: ObjectId('680c76ecdebc0b6eefb5f89b'),
+    name: 'ramesh',
+    age: 34
+  }
+]
+students> db.data.find().limit(2)
+[
+  { _id: ObjectId('680c7682debc0b6eefb5f899'),name: 'adi', age: 29 },
+  {
+    _id: ObjectId('680c76ecdebc0b6eefb5f89a'),
+    name: 'aravind',
+    age: 27
+  }
+]
+students> db.Data.find().limit(2)
+
+students> **************how to get the dbs from the other account **********
+Uncaught:
+SyntaxError: Unexpected token (1:0)
+
+> 1 | **************how to get the dbs from the other account **********
+    | ^
+  2 |
+
+students> db.data.find()
+[
+  { _id: ObjectId('680c7682debc0b6eefb5f899'),name: 'adi', age: 29 },
+  {
+    _id: ObjectId('680c76ecdebc0b6eefb5f89a'),
+    name: 'aravind',
+    age: 27
+  },
+  {
+    _id: ObjectId('680c76ecdebc0b6eefb5f89b'),
+    name: 'ramesh',
+    age: 34
+  }
+]
+students> db.data.insertOne({'name':'adi' , 'age':30})
+{
+  acknowledged: true,
+  insertedId: ObjectId('680c891c2809cb0be6b5f899')
+}
+students> db.data.find({'name':'adi'})
+[
+  { _id: ObjectId('680c7682debc0b6eefb5f899'),name: 'adi', age: 29 },
+  { _id: ObjectId('680c891c2809cb0be6b5f899'),name: 'adi', age: 30 }
+]
+students> db.data.findOne({'name':'adi'})
+{ _id: ObjectId('680c7682debc0b6eefb5f899'), name: 'adi', age: 29 }
+students> show dbs
+admin      40.00 KiB
+config    108.00 KiB
+idb         8.00 KiB
+local      96.00 KiB
+myistay   372.00 KiB
+students   72.00 KiB
+students>

@@ -1,0 +1,125 @@
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Install the latest PowerShell for new features and improvements! https://aka.ms/PSWindows
+
+PS C:\Users\adith> mongoimport C:\Adithya Naik\GitHub\MongoDB\files\comments.json -d shop -c comments
+2025-04-26T13:51:33.234+0530    error parsing command line options: error parsing positional arguments: provide only one file name and only one MongoDB connection string. Connection strings must begin with mongodb:// or mongodb+srv:// schemes
+2025-04-26T13:51:33.235+0530    try 'mongoimport --help' for more information
+PS C:\Users\adith> mongoimport "C:\Adithya Naik\GitHub\MongoDB\files\comments.json" -d shop -c comments
+2025-04-26T13:51:48.510+0530    connected to: mongodb://localhost/
+2025-04-26T13:51:48.535+0530    7 document(s) imported successfully. 0 document(s) failed to import.
+PS C:\Users\adith> show collections
+show : The term 'show' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path
+was included, verify that the path is correct and try again.
+At line:1 char:1
++ show collections
++ ~~~~
+    + CategoryInfo          : ObjectNotFound: (show:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Users\adith> mongosh
+Current Mongosh Log ID: 680c97b878e3ba6a73b5f898
+Connecting to:          mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.5.0
+Using MongoDB:          8.0.8
+Using Mongosh:          2.5.0
+
+For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
+
+------
+   The server generated these startup warnings when booting
+   2025-04-26T11:42:45.246+05:30: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+------
+
+test> show collections
+
+test> use shop
+switched to db shop
+shop> show collections
+categories
+comments
+products
+sales
+shop> db.comments.find()
+[
+  {
+    _id: 4,
+    title: 'Advanced Queries in MongoDB',
+    content: 'Learn how to write complex queries...',
+    author: 'Michael Johnson',
+    comments: [
+      { user: 'Grace', text: 'Mind-blowing content!' },
+      { user: 'Henry', text: 'Impressive examples.' }
+    ],
+    metadata: { views: 1500, likes: 60 }
+  },
+  {
+    _id: 2,
+    title: 'Deep Dive into Aggregation Framework',
+    content: 'The aggregation framework in MongoDB...',
+    author: 'Jane Smith',
+    comments: [
+      { user: 'Charlie', text: 'Very informative!' },
+      { user: 'David', text: 'Well explained.' }
+    ],
+    metadata: { views: 800, likes: 70 }
+  },
+  {
+    _id: 6,
+    title: 'Schema Design Best Practices',
+    content: 'Designing schemas for optimal performance...',
+    author: 'Emily Brown',
+    comments: [
+      { user: 'Kevin', text: 'Invaluable insights!' },
+      { user: 'Lily', text: 'Well-structured explanations.' }
+    ],
+    metadata: { views: 700, likes: 65 }
+  },
+  {
+    _id: 7,
+    title: 'Introduction to MongoDB',
+    content: 'MongoDB is a popular NoSQL database...',
+    author: 'Vinod Thapa',
+    comments: [
+      { user: 'Alice', text: 'Awesome article!' },
+      { user: 'Vinod', text: 'Thanks for sharing.' }
+    ],
+    metadata: { views: 1000, likes: 70 }
+  },
+  {
+    _id: 3,
+    title: 'Getting Started with NoSQL Databases',
+    content: 'NoSQL databases provide flexible data models...',
+    author: 'Sarah Williams',
+    comments: [
+      { user: 'Eva', text: 'Very helpful!' },
+      { user: 'Frank', text: 'Clear explanations.' }
+    ],
+    metadata: { views: 1200, likes: 40 }
+  },
+  {
+    _id: 1,
+    title: 'Introduction to MongoDB',
+    content: 'MongoDB is a popular NoSQL database...',
+    author: 'John Doe',
+    comments: [
+      { user: 'Alice', text: 'Great article!' },
+      { user: 'Bob', text: 'Thanks for sharing.' },
+      { user: 'Eva', text: 'Its beatifull!' },
+      { user: 'jessy' }
+    ],
+    metadata: { views: 1000, likes: 50 }
+  },
+  {
+    _id: 5,
+    title: 'Optimizing MongoDB Performance',
+    content: 'Tips and tricks to improve MongoDB performance...',
+    author: 'Alex Turner',
+    comments: [
+      { user: 'Ivy', text: 'Very practical advice!' },
+      { user: 'Jack', text: 'Helped me a lot.' }
+    ],
+    metadata: { views: 900, likes: 55 }
+  }
+]
+shop>
